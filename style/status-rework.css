@@ -71,7 +71,7 @@ img {
 
 .timer {
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .timer span {
@@ -433,7 +433,10 @@ footer .logo {
 
 /* responsive  */
 @media only screen and (min-width: 1200px) {
-
+    .timer {
+        text-align: center;
+        font-size: 22px;
+    }
     .logo {
         width: 80px;
     }
@@ -468,8 +471,7 @@ footer .logo {
 @media only screen and (min-width: 1700px) {
 
     .status-blue h1 {
-        font-size: 30px;
-        /* margin-bottom: 5px; */
+        font-size: 30px; 
     }
 
     .status-blue p {
