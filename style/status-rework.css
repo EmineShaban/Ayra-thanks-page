@@ -3,7 +3,7 @@ body {
     font-family: 'Open Sans', sans-serif;
  }
  .logo {
-    width: 60px;
+    width: 70px;
     margin: 10px auto;
     display: block;
 }
@@ -19,18 +19,17 @@ img {
 }
 
 .successful-order h2 {
-    color: #5C8DBF;
+    color: #9747FF;
     font-size: 22px;
-    font-weight: 400;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
 .successful-order .check-ico {
     margin: 0;
     display: inline-block;
-    width: 25px;
-    margin-right: 10px;
-
+    width: 30px;
+    margin-right: 10px; 
 }
 
 .status-blue {
@@ -126,6 +125,10 @@ img {
     background-color: #f5f5f5;
     padding: 10px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 
 .product-box div:nth-of-type(1) {
@@ -273,8 +276,7 @@ fieldset:first-of-type {
 }
 
 fieldset h2 {
-    text-transform: uppercase;
-    color: #5C8DBF;
+    text-transform: uppercase; 
     font-weight: 800;
     margin-bottom: 10px;
     border-bottom: 1px solid #11111152;
@@ -337,7 +339,7 @@ table.summary .total th:nth-of-type(3) {
 }
 
 table.summary .total th:last-of-type {
-    color: #5C8DBF;
+    color: #9747FF;
     font-weight: 800;
 }
 
@@ -370,7 +372,12 @@ footer .logo {
 
 /* responsive  */
 @media only screen and (min-width: 768px) {
-
+    .product-box {
+        position: relative;
+        display: block;
+        background-color: #f5f5f5;
+        padding: 30px;
+    }
     .on-mobile {
         display: none;
     }
@@ -390,7 +397,7 @@ footer .logo {
     }
 
     .upsales {
-        grid-template-columns: 250px 250px;
+        grid-template-columns: 300px 300px;
         justify-content: center;
         column-gap: 50px;
     }
@@ -428,14 +435,16 @@ footer .logo {
 @media only screen and (min-width: 1200px) {
 
     .logo {
-        width: 115px;
+        width: 80px;
     }
 
     .thank-you-offer-success h2 {
         font-size: 22px;
     }
 
-
+    footer .logo {
+        width: 85px;
+    }
 }
 
 /* responsive  */
@@ -459,17 +468,15 @@ footer .logo {
 @media only screen and (min-width: 1700px) {
 
     .status-blue h1 {
-        font-size: 40px;
-        margin-bottom: 10px;
+        font-size: 30px;
+        /* margin-bottom: 5px; */
     }
 
     .status-blue p {
         font-size: 25px;
     }
 
-    footer .logo {
-        width: 180px;
-    }
+    
 }
 
 /* responsive  */
