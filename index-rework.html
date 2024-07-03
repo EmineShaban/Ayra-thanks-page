@@ -31,42 +31,39 @@
         <p class="timer">Limited Time Deals <br>
             <span id="minutes"></span>:<span id="seconds"></span> <span> minutes</span>
         </p>
-      <!--   <h2 class="promo-title"><?php echo $LANG['thank_you_page_offer_eyecream_title'] ?></h2> -->
+        <!--   <h2 class="promo-title"><?php echo $LANG['thank_you_page_offer_eyecream_title'] ?></h2> -->
 
-      <h2 class="promo-title">Don't miss our <span>exclusive offer </span> selected especially for YOU!
-      </h2>
+        <h2 class="promo-title">Don't miss our <span>exclusive offer </span> selected especially for YOU!
+        </h2>
         <div class="upsales">
-            <div class="product-box cream">
+            <div class="product-box eye">
                 <div>
-                    <img src="https://lesthe.com/cdn/onycostop/assets_v.4.0/images/CROSS_CREAM.webp" alt="">
-                    <img class="off-img"
-                        src="./60-percent-discount-sticker-price-tag-design-product-emblem-with-percentage-sell-off-marketing-deal-sale-tag-giving-super-offer-60-percent-off-banners-discount.png"
-                        alt="">
-                    <!-- <span class="badge orange">Recommended</span> -->
+                    <img src="https://lesthe.com/cdn/ayra/inc/assets-order-v3/images/eye-cream.png" alt="">
                 </div>
-                <h3>Onycostop Pro <b>CREAM</b></h3>
-                <p>Additional Anti-Fungal Foot Care
+                <h3>Ayra Synergy
+                    <br><b> Eye Cream</b>
+                </h3>
+                <p>Enhance Your Anti-Wrinkle Routine With Ayra Synergy Eye Cream
                 </p>
                 <div class="product-prices">
-                    <div class="price-old">29.8 €</div>
-                    <div class="price-new">14.9 €</div>
+                    <div class="price-new">23.9 €</div>
                 </div>
                 <a href="" class="a-offer">ADD TO MY ORDER</a>
             </div>
 
-            <div class="product-box scrub">
+            <div class="product-box serum">
                 <div>
-                    <img src="https://lesthe.com/cdn/onycostop/assets_v.4.0/images/CROSS_SCRUB.webp" alt="">
-                    <img class="off-img"
-                        src="./60-percent-discount-sticker-price-tag-design-product-emblem-with-percentage-sell-off-marketing-deal-sale-tag-giving-super-offer-60-percent-off-banners-discount.png"
-                        alt="">
-                    <!-- <span class="badge blue">Best Seller </span> -->
+                    <img src="https://lesthe.com/cdn/ayra/inc/assets-order-v3/images/serum.png" alt="">
                 </div>
-                <h3>Onycostop Pro <b>SCRUB</b></h3>
-                <p>Additional Exfoliating Foot Care</p>
+                <h3>Ayra Synergy
+                    <br><b> Face Serum</b>
+                </h3>
+                <p>Boost Your Anti-Wrinkle Routine With Ayra Synergy Face Serum
+
+
+                </p>
                 <div class="product-prices">
-                    <div class="price-old">29.8 €</div>
-                    <div class="price-new">14.9 €</div>
+                    <div class="price-new">36.9 €</div>
                 </div>
                 <a href="" class="a-offer">ADD TO MY ORDER</a>
             </div>
@@ -185,8 +182,8 @@
 
 
     <footer>
-        <img class="logo" src="https://lesthe.com//cdn/onycostop/assets_v.4.0/images/white_logo_onyco.svg" alt="">
-        <p class="all_rights">All rights reserved © OnycoStop Pro </p>
+        <img class="logo" src="https://lesthe.com/cdn/ayra/inc/assets-w-2.0/img/ayra_logo.webp" alt="">
+        <p class="all_rights">All rights reserved © AYRA Synergy </p>
 
     </footer>
     <!-- JQUERY  -->
@@ -201,8 +198,178 @@
         });
     </script>
 
-    <script src="./timer.js"></script>
+
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://lesthe.com//cdn/ayra/inc/assets-general/js/timer.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // products in cart 
+            let products_in_cart = <? php echo json_encode($cart_data); ?>;
+            let depil = {
+                245: '303',
+                248: '303',
+                251: '303'
+            }
+
+            let scrub = {
+                272: '298'
+            }
+
+            let milk = {
+                275: '300'
+            }
+            let wash = {
+                279: '302'
+            }
+
+            let extra_marblelous = {
+                295: '303',
+                2955: '302',
+            }
+
+            let super_marblelous = {
+                292: '303',
+                2922: '302',
+                29222: '298',
+            }
+
+            let prime_marblelous = {
+                289: '303',
+                2899: '302',
+                28999: '298',
+                289999: '300',
+            }
+
+            // products in cart in array
+            let id_in_cart = [];
+
+            // push product id's in array
+            $.each(products_in_cart, function (i, elem) {
+                if (elem.product_id) {
+                    id_in_cart.push(elem.product_id);
+                }
+            });
+
+            // convert id's product in string 
+            id_in_cart = id_in_cart.map(String);
+
+            // check which ids are in cart and call function
+            $.each(depil, function (index, value) {
+
+                if (id_in_cart.indexOf(index) > -1) {
+                    hide_box(value)
+                } else if (id_in_cart.indexOf(value) > -1) {
+                    hide_box(value)
+                }
+            });
+
+            $.each(scrub, function (index, value) {
+
+                if (id_in_cart.indexOf(index) > -1) {
+                    hide_box(value)
+                } else if (id_in_cart.indexOf(value) > -1) {
+                    hide_box(value)
+                }
+            });
+
+
+            $.each(milk, function (index, value) {
+
+                if (id_in_cart.indexOf(index) > -1) {
+                    hide_box(value)
+                } else if (id_in_cart.indexOf(value) > -1) {
+                    hide_box(value)
+                }
+            });
+
+            $.each(wash, function (index, value) {
+                if (id_in_cart.indexOf(index) > -1) {
+                    hide_box(value)
+
+                } else if (id_in_cart.indexOf(value) > -1) {
+                    hide_box(value)
+                }
+            });
+
+            $.each(extra_marblelous, function (index, value) {
+                if (id_in_cart.indexOf(index) > -1) {
+
+                    for (const property in extra_marblelous) {
+                        hide_box(`${extra_marblelous[property]}`);
+                    }
+                } else if (id_in_cart.indexOf(value) > -1) {
+                    hide_box(value)
+                }
+            });
+
+            $.each(super_marblelous, function (index, value) {
+                if (id_in_cart.indexOf(index) > -1) {
+
+                    for (const property in super_marblelous) {
+                        hide_box(`${super_marblelous[property]}`);
+                    }
+                } else if (id_in_cart.indexOf(value) > -1) {
+                    hide_box(value)
+                }
+            });
+
+            $.each(prime_marblelous, function (index, value) {
+                if (id_in_cart.indexOf(index) > -1) {
+
+                    for (const property in prime_marblelous) {
+                        hide_box(`${prime_marblelous[property]}`);
+                    }
+                } else if (id_in_cart.indexOf(value) > -1) {
+                    hide_box(value)
+                }
+            });
+
+
+
+            // hide existing products 
+            function hide_box(id) {
+                $('#' + id).css("display", "none");
+            }
+
+            let hidden_boxes = $('.product-box[style*="display: none"]');
+
+            console.log(hidden_boxes.length)
+            if (hidden_boxes.length >= 4) {
+                $('.thank-you-offer p').css("display", "none")
+            } else if (hidden_boxes.length < 2) {
+
+                $('.product-box').last().css("display", "none")
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
     <!--  -->
+    <script src='/cdn/js/fa_events.js'></script>
+    <script>
+        fa_get_data('Lead');
+    </script>
+
 </body>
 
 </html>
