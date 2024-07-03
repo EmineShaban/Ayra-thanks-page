@@ -11,6 +11,11 @@ img {
     width: 100%;
 }
 
+.cream{ 
+    width: 95%;
+    margin: auto;
+ 
+}
 .successful-order {
     display: flex;
     align-items: center;
