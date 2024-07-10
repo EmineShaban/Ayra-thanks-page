@@ -1,32 +1,46 @@
+<?php 
+file_exists("/home/campaign/campaign/active/cdn/forms/ayra/language-$lang.php") ? include_once("/home/campaign/campaign/active/cdn/forms/ayra/language-$lang.php") : include_once("/home/campaign/campaign/active/cdn/forms/ayra/language-en.php");
+
+include_once("/home/campaign/campaign/active/cdn/forms/status-functions.php");
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="<?php echo $LANG['lang'] ?>">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://lesthe.com/cdn/onycostop/inc/assets-b-2.0/css/reset.css">
-    <link rel="stylesheet" href="./style/status-rework.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://lesthe.com/cdn/ayra/inc/assets-general/css/status-upsels.css">
+    <title>
+        <?php echo $LANG['product_name'] ?>
+    </title>
 </head>
 
 <body>
+    <?php $trackEvent='purchase'; include_once ("/home/campaign/campaign/active/cdn/ayra/inc/tags/$lang-w.php");?>
+
 
     <header>
         <img class="logo" src="https://lesthe.com/cdn/ayra/inc/assets-general/images/logo.png" alt="">
     </header>
-
-    <div class="status-blue">
+     <div class="status-blue">
         <h1>
             <?php echo $LANG['thank_you'] ?>
         </h1>
 
     </div>
     <div class="successful-order">
-        <img class="check-ico" src="./check-icon-check-mark-icon-vector.jpg" alt="">
+        <img class="check-ico"
+            src="https://lesthe.com/cdn/ayra/inc/assets-general/images/check-icon-check-mark-icon-vector.jpg" alt="">
         <h2>
             <?php echo $LANG['thank_you_order_success'] ?>
         </h2>
@@ -44,9 +58,6 @@
         </h2>
         <!-- <h2 class="promo-title">Don't miss our <span>exclusive offer </span> selected especially for YOU!
         </h2> -->
-
-
-
 
         <div class="upsales">
             <?php $product = getProduct(311,0); ?>
@@ -100,7 +111,7 @@
             <?php $product = getProduct(316,0); ?>
             <div class="product-box cream" id="316">
                 <div>
-                <img src="https://lesthe.com/cdn/ayra/inc/assets-order-v2/img/order-v3/Ayra.png" alt="">
+                    <img src="https://lesthe.com/cdn/ayra/inc/assets-order-v2/img/order-v3/Ayra.png" alt="">
                 </div>
                 <h3>Ayra Synergy
                     <br><b> Cream</b>
@@ -122,113 +133,116 @@
             </div>
         </div>
     </div>
-
-
-
+ 
     <div class="order-info">
-        <!-- <p><?php echo $LANG['thank_you_order_info_title'] ?></p> -->
-        <!-- <p>We would like to inform you that</p> -->
-
-        <!-- <p><?php echo $LANG['thank_you_confirmation_mail_sent'] ?></p> -->
-        <!-- <p>An order confirmation letter has been sent to your email.</p> -->
 
         <div class="table-grid">
             <fieldset class="customer-details">
-                <h2>Customer details</h2>
+                <h2>
+                    <?php echo $LANG['thank_you_customer_details'] ?>
+                </h2>
                 <table>
                     <tr>
-                        <th>Full name</th>
-                        <td>Iva Radeva</td>
-                    </tr>
-                    <tr>
-                        <th>City, postal code</th>
-                        <td>Sofia</td>
-                    </tr>
-                    <tr>
-                        <th>Address</th>
-                        <td>teftftgs</td>
-                    </tr>
-                    <tr>
-                        <th>Telephone</th>
-                        <td>85444254</td>
-                    </tr>
-                    <tr>
-                        <th>E-mail</th>
-                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                data-cfemail="9ef7b0ecfffafbe8ffdeedb3faf7f9f7eafff2b0fbeb">[email&#160;protected]</a>
+                        <th>
+                            <?php echo $LANG['order_form_name'] ?>
+                        </th>
+                        <td>
+                            <?php echo $form_data['billing_fname']?>
                         </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            <?php echo $LANG['order_form_city'] ?>,
+                            <?php echo $LANG['order_form_zip'] ?>
+                        </th>
+                        <td>
+                            <?php echo $form_data['billing_city'] .  " , " . $form_data['billing_zip'] ?>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            <?php echo $LANG['order_form_address'] ?>
+                        </th>
+                        <td>
+                            <?php echo $form_data['billing_address']?>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            <?php echo $LANG['order_form_phone'] ?>
+                        </th>
+                        <td>
+                            <?php echo $form_data['billing_phone']?>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            <?php echo $LANG['order_form_email'] ?>
+                        </th>
+                        <td>
+                            <?php echo $form_data['billing_email']?>
+                        </td>
+
                     </tr>
                 </table>
             </fieldset>
 
             <fieldset>
-                <!-- <legend><?php echo $LANG['thank_you_cart_details'] ?></legend> -->
-                <h2>Cart details</h2>
+
+                <h2>
+                    <?php echo $LANG['thank_you_cart_details'] ?>
+                </h2>
                 <table class="summary">
                     <tr>
                         <th>
-                            <!-- <?php echo $LANG['thank_you_product'] ?> -->
-                            Product
+                            <?php echo $LANG['thank_you_product'] ?>
+
                         </th>
                         <th class="center">
-                            <!-- <?php echo $LANG['quantity'] ?> -->
-                            Quantity
+                            <?php echo $LANG['quantity'] ?>
                         </th>
-                        <!-- <th> <?php echo $LANG['price_old'] ?> </th> -->
-                        <!-- <th><?php echo $LANG['price_discount'] ?></th> -->
+                        <th>
+                            <?php echo $LANG['price_discount'] ?>
+                        </th>
                         <th class="center">
-                            <!-- <?php echo $LANG['thank_you_your_price'] ?> -->
-                            Price
+                            <?php echo $LANG['thank_you_your_price'] ?>
+
                         </th>
                     </tr>
-                    <!-- <?php 
+                    <?php 
 			      foreach( $cart_data as $k=>$item ){
 			        if($k !== "total" && isset($item['price']) ){
 			          $prices = getProduct($item['product_id'],0);
-			          echo "<tr><td>".$PRODUCTS[$item["product_id"]]->name."</td><td>".$item['quantity']."</td><td>".$item['full-price']."</td><td>".($item['discount']+$item['coupon-discount'])."</td><td>".($item['price']-$item['coupon-discount'])."</td></tr>";
+			          echo "<tr><td>".$PRODUCTS[$item["product_id"]]->name
+                      ."</td><td>"
+                      .$item['quantity']
+                      ."</td><td>".$item['full-price']
+                      ."</td><td>".($item['price']-$item['coupon-discount'])
+                      ."</td></tr>";
 			        }
 			      }
-			    ?> -->
-                    <tr>
-                        <td>Ayra Synergy Face Serum x 3 </td>
-                        <td class="center"> 1 </td>
-                        <td class="center">75.8 </td>
-                    </tr>
-                    <tr>
-                        <td>Ayra Synergy Eye Cream x 3 </td>
-                        <td class="center"> 1 </td>
-                        <td class="center">14.9 </td>
-                    </tr>
+			    ?>
 
-                    <tr>
-                        <td>Delivery</td>
-                        <td class="center"> </td>
-                        <td class="center">Free </td>
-                    </tr>
                     <tr class="total">
                         <th>
-                            <!-- <?php echo $LANG['price_total'] ?> -->
-                            Total
+                            <?php echo $LANG['price_total'] ?>
+
                         </th>
                         <th></th>
                         <th>
-                            <!-- <?php echo $cart_data['total']['price'] ?> <?php echo $LANG['billing_currency_local'] ?> -->
-                            90.7€
+                            <?php echo $cart_data['total']['price'] ?>
+                            <?php echo $LANG['billing_currency_local'] ?>
+
                         </th>
                     </tr>
                 </table>
             </fieldset>
         </div>
-
     </div>
-
-
-    <div class="thank-you-offer-success">
-        <!-- <h2 class="highlight"><?php echo $LANG['thank_you_page_offer_vitamin_e_success'] ?></h2> -->
-        <h2 class="highlight">OnycoStop Pro Scrub has been <span>successfully</span> added to your order.</h2>
-        <img class="check-ico" src="https://lesthe.com/cdn/onycostop/inc/assets-general/img/status/check-04.png" alt="">
-    </div><!-- END .thank-you-offer-success -->
-
 
 
     <footer>
@@ -236,71 +250,32 @@
         <p class="all_rights">All rights reserved © AYRA Synergy </p>
 
     </footer>
-    <!-- JQUERY  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
-        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        $(".a-offer").click(function (e) {
-            e.preventDefault()
-            $(".thank-you-offer").slideUp("slow")
-            $(".thank-you-offer-success").slideDown("slow");
-        });
-    </script>
-
-
-
-
-
-
-
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="https://lesthe.com//cdn/ayra/inc/assets-general/js/timer.js"></script>
+
     <script>
         $(document).ready(function () {
 
             // products in cart 
             let products_in_cart = <? php echo json_encode($cart_data); ?>;
-            let depil = {
-                245: '303',
-                248: '303',
-                251: '303'
+            console.log(products_in_cart)
+            let cream = {
+                19: '316',
+                22: '316',
+                25: '316'
             }
-
-            let scrub = {
-                272: '298'
+            let eye = {
+                36: '311'
             }
-
-            let milk = {
-                275: '300'
+            let serum = {
+                88: '314',
+                122: '314',
+                123: '314'
             }
-            let wash = {
-                279: '302'
-            }
-
-            let extra_marblelous = {
-                295: '303',
-                2955: '302',
-            }
-
-            let super_marblelous = {
-                292: '303',
-                2922: '302',
-                29222: '298',
-            }
-
-            let prime_marblelous = {
-                289: '303',
-                2899: '302',
-                28999: '298',
-                289999: '300',
-            }
-
             // products in cart in array
             let id_in_cart = [];
 
@@ -313,9 +288,18 @@
 
             // convert id's product in string 
             id_in_cart = id_in_cart.map(String);
+            console.log(id_in_cart)
 
             // check which ids are in cart and call function
-            $.each(depil, function (index, value) {
+            $.each(cream, function (index, value) {
+                console.log(cream)
+                if (id_in_cart.indexOf(index) > -1) {
+                    hide_box(value)
+                } else if (id_in_cart.indexOf(value) > -1) {
+                    hide_box(value)
+                }
+            });
+            $.each(eye, function (index, value) {
 
                 if (id_in_cart.indexOf(index) > -1) {
                     hide_box(value)
@@ -324,26 +308,7 @@
                 }
             });
 
-            $.each(scrub, function (index, value) {
-
-                if (id_in_cart.indexOf(index) > -1) {
-                    hide_box(value)
-                } else if (id_in_cart.indexOf(value) > -1) {
-                    hide_box(value)
-                }
-            });
-
-
-            $.each(milk, function (index, value) {
-
-                if (id_in_cart.indexOf(index) > -1) {
-                    hide_box(value)
-                } else if (id_in_cart.indexOf(value) > -1) {
-                    hide_box(value)
-                }
-            });
-
-            $.each(wash, function (index, value) {
+            $.each(serum, function (index, value) {
                 if (id_in_cart.indexOf(index) > -1) {
                     hide_box(value)
 
@@ -352,42 +317,10 @@
                 }
             });
 
-            $.each(extra_marblelous, function (index, value) {
-                if (id_in_cart.indexOf(index) > -1) {
 
-                    for (const property in extra_marblelous) {
-                        hide_box(`${extra_marblelous[property]}`);
-                    }
-                } else if (id_in_cart.indexOf(value) > -1) {
-                    hide_box(value)
-                }
-            });
+            hide existing products 
+ 
 
-            $.each(super_marblelous, function (index, value) {
-                if (id_in_cart.indexOf(index) > -1) {
-
-                    for (const property in super_marblelous) {
-                        hide_box(`${super_marblelous[property]}`);
-                    }
-                } else if (id_in_cart.indexOf(value) > -1) {
-                    hide_box(value)
-                }
-            });
-
-            $.each(prime_marblelous, function (index, value) {
-                if (id_in_cart.indexOf(index) > -1) {
-
-                    for (const property in prime_marblelous) {
-                        hide_box(`${prime_marblelous[property]}`);
-                    }
-                } else if (id_in_cart.indexOf(value) > -1) {
-                    hide_box(value)
-                }
-            });
-
-
-
-            // hide existing products 
             function hide_box(id) {
                 $('#' + id).css("display", "none");
             }
@@ -407,19 +340,12 @@
 
 
 
+    <script src="/cdn/ayra/inc/assets-general/js/timer.js"></script>
 
-
-
-
-
-
-
-    <!--  -->
     <script src='/cdn/js/fa_events.js'></script>
     <script>
         fa_get_data('Lead');
     </script>
-
 </body>
 
 </html>

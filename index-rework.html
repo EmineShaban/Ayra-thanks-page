@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://lesthe.com/cdn/onycostop/inc/assets-b-2.0/css/reset.css">
-    <link rel="stylesheet" href="./style/status-rework.css">
+    <link rel="stylesheet" href="./style/status-upsels.css">
     <title>Document</title>
 </head>
 
@@ -26,7 +26,7 @@
         <h1>Thank you</h1> 
     </div>
     <div class="successful-order">
-        <img class="check-ico" src="./check-icon-check-mark-icon-vector.jpg" alt="">
+        <img class="check-ico" src="https://lesthe.com/cdn/ayra/inc/assets-general/images/check-icon-check-mark-icon-vector.jpg" alt="">
         <h2>Successful order! </h2>
     </div>
     <div class="thank-you-offer">
@@ -190,14 +190,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        $(".a-offer").click(function (e) {
-            e.preventDefault()
-            $(".thank-you-offer").slideUp("slow")
-            $(".thank-you-offer-success").slideDown("slow");
-        });
-    </script>
-
+ 
+ 
 
 
 
@@ -216,40 +210,23 @@
 
             // products in cart 
             let products_in_cart = <? php echo json_encode($cart_data); ?>;
-            let depil = {
-                245: '303',
-                248: '303',
-                251: '303'
+            let cream = {
+                19: '316',
+                22: '316',
+                25: '316'
             }
 
-            let scrub = {
-                272: '298'
+         
+            let eye = {
+                36: '311'
+            }
+            let serum = {
+                88: '314',
+                122: '314',
+                123: '314'
             }
 
-            let milk = {
-                275: '300'
-            }
-            let wash = {
-                279: '302'
-            }
-
-            let extra_marblelous = {
-                295: '303',
-                2955: '302',
-            }
-
-            let super_marblelous = {
-                292: '303',
-                2922: '302',
-                29222: '298',
-            }
-
-            let prime_marblelous = {
-                289: '303',
-                2899: '302',
-                28999: '298',
-                289999: '300',
-            }
+          
 
             // products in cart in array
             let id_in_cart = [];
@@ -265,7 +242,7 @@
             id_in_cart = id_in_cart.map(String);
 
             // check which ids are in cart and call function
-            $.each(depil, function (index, value) {
+            $.each(cream, function (index, value) {
 
                 if (id_in_cart.indexOf(index) > -1) {
                     hide_box(value)
@@ -274,7 +251,10 @@
                 }
             });
 
-            $.each(scrub, function (index, value) {
+         
+
+
+            $.each(eye, function (index, value) {
 
                 if (id_in_cart.indexOf(index) > -1) {
                     hide_box(value)
@@ -283,17 +263,7 @@
                 }
             });
 
-
-            $.each(milk, function (index, value) {
-
-                if (id_in_cart.indexOf(index) > -1) {
-                    hide_box(value)
-                } else if (id_in_cart.indexOf(value) > -1) {
-                    hide_box(value)
-                }
-            });
-
-            $.each(wash, function (index, value) {
+            $.each(serum, function (index, value) {
                 if (id_in_cart.indexOf(index) > -1) {
                     hide_box(value)
 
@@ -302,39 +272,7 @@
                 }
             });
 
-            $.each(extra_marblelous, function (index, value) {
-                if (id_in_cart.indexOf(index) > -1) {
-
-                    for (const property in extra_marblelous) {
-                        hide_box(`${extra_marblelous[property]}`);
-                    }
-                } else if (id_in_cart.indexOf(value) > -1) {
-                    hide_box(value)
-                }
-            });
-
-            $.each(super_marblelous, function (index, value) {
-                if (id_in_cart.indexOf(index) > -1) {
-
-                    for (const property in super_marblelous) {
-                        hide_box(`${super_marblelous[property]}`);
-                    }
-                } else if (id_in_cart.indexOf(value) > -1) {
-                    hide_box(value)
-                }
-            });
-
-            $.each(prime_marblelous, function (index, value) {
-                if (id_in_cart.indexOf(index) > -1) {
-
-                    for (const property in prime_marblelous) {
-                        hide_box(`${prime_marblelous[property]}`);
-                    }
-                } else if (id_in_cart.indexOf(value) > -1) {
-                    hide_box(value)
-                }
-            });
-
+             
 
 
             // hide existing products 
@@ -353,6 +291,8 @@
             }
         });
     </script>
+
+
 
 
 
